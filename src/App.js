@@ -1,9 +1,13 @@
+import { Button } from '@material-ui/core'
+import { Person } from '@material-ui/icons';
 
 
 function App() {
   return (
     <div>
-      سلام بر تو
+      <Button variant="outlined" color="secondary" startIcon={<Person/>}>
+        سلام
+      </Button>
     </div>
     
 
