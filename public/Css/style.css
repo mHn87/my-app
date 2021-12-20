@@ -1,0 +1,15 @@
+@font-face{
+    font-family: 'msi';
+    src: url('../Fonts/IRANYekanBold.ttf') format('truetype');
+}
+
+
+body{
+    direction: rtl;
+    text-align: right;
+    font-family: 'msi';
+}
+
+* {
+    font-family: 'msi';
+}
