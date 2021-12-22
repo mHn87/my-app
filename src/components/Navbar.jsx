@@ -1,5 +1,6 @@
-import { alpha, AppBar, Badge, InputBase, makeStyles, Toolbar, Typography } from '@material-ui/core'
-import { Search, MailIcon, Mail } from '@material-ui/icons';
+import { alpha, AppBar, Badge, InputBase, makeStyles, Toolbar, Typography, Avatar } from '@material-ui/core'
+import { Search, Mail, Notifications, Cancel } from '@material-ui/icons';
+import { useState } from 'react';
 
 const useStyle = makeStyles((theme) => ({
 
@@ -29,13 +30,45 @@ const useStyle = makeStyles((theme) => ({
             backgroundColor: alpha(theme.palette.common.white,0.25),
         },
         borderRadius: theme.shape.borderRadius,
+        width:"50%",
+        [theme.breakpoints.down("sm")] : {
+            display: (props) => (props.open ? "flex" : "none")
+        },  
+
         
         
     },
 
     input:{
         color:"white",
-        marginRight: theme.spacing(1)
+        marginRight: theme.spacing(1),
+        width:"100%"
+
+    },
+
+    searchButton: {
+        display: "none",
+        marginLeft: theme.spacing(2),
+        [theme.breakpoints.down("sm")] : {
+            display: "block"
+        },
+        
+    },
+
+    icon: {
+        alignItems:"center",
+        display: (props) => (props.open ? "none" : "flex")
+
+    },
+
+    badge: {
+        marginLeft: theme.spacing(2)
+    },
+
+    cancel: {
+        [theme.breakpoints.up("sm")] : {
+            display:"none"
+        },  
     }
 }))
 
@@ -43,7 +76,8 @@ const useStyle = makeStyles((theme) => ({
 
 
 function Navbar() {
-  const classes = useStyle();
+  const [open,setOpen] = useState(false);
+  const classes = useStyle({open});
   return (
     <AppBar>
         <Toolbar className={classes.toolbar}>
@@ -55,13 +89,18 @@ function Navbar() {
             </Typography>
 
             <div className= {classes.search}>
-                <Search/>
                 <InputBase placeholder='جستجو کنید'  className={classes.input}/>
+                <Cancel className={classes.cancel} onClick={() => setOpen(false)}/>
             </div>
             <div className={classes.icon}>
-                <Badge badgeContent={4} color='error'>
+                <Search className={classes.searchButton} onClick={() => setOpen(true)} />
+                <Badge badgeContent={4} color='error' className={classes.badge}>
                     <Mail/>
                 </Badge>
+                <Badge badgeContent={4} color='error' className={classes.badge}>
+                    <Notifications/>
+                </Badge>
+                <Avatar alt='Remy Sharp' src= "https://images.pexels.com/photos/428364/pexels-photo-428364.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"/>
             </div>
         </Toolbar>
     </AppBar>
