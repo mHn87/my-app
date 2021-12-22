@@ -1,17 +1,21 @@
-import { makeStyles } from '@material-ui/core'
+import { Container, makeStyles } from '@material-ui/core'
 
-const useStyle = makeStyles({
-})
+const useStyle = makeStyles((theme) => ({
+  container: {
+    paddingTop: theme.spacing(10)
+  }
+}))
 
 
 function Rightbar() {
   const classes = useStyle();
   return (
+    <Container className={classes.container}>
     <div>
-        
+        این ساید بار راست است
     </div>
     
-
+    </Container>
   );
 }
 

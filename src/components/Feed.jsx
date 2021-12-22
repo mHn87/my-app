@@ -1,17 +1,21 @@
-import { makeStyles } from '@material-ui/core'
+import { Container, makeStyles } from '@material-ui/core'
 
-const useStyle = makeStyles({
-})
+const useStyle = makeStyles((theme) => ({
+  container: {
+    paddingTop: theme.spacing(10)
+  }
+}))
 
 
 function Feed() {
   const classes = useStyle();
   return (
+    <Container className={classes.container}>
     <div>
-        
+        فارســـی را پاس بداریم
     </div>
     
-
+    </Container>
   );
 }
 

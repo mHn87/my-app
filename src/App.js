@@ -1,10 +1,12 @@
-import { Button, makeStyles } from '@material-ui/core'
-import { Person } from '@material-ui/icons';
-import NavBar from './components/Navbar';
+import { Button, Grid, makeStyles, Typography } from '@material-ui/core'
+import Navbar from './components/Navbar';
+import Rightbar from './components/Rightbar';
+import Leftbar from './components/Leftbar';
+import Feed from './components/Feed';
 
 const useStyle = makeStyles({
-  Button : {
-    color:"white",
+  Button: {
+    color: "white",
     backgroundColor: "black"
   }
 })
@@ -14,9 +16,21 @@ function App() {
   const classes = useStyle();
   return (
     <div>
-      <NavBar/>
+      <Navbar />
+
+      <Grid container>
+        <Grid item sm={3}>
+          <Rightbar />
+        </Grid>
+        <Grid item sm={7}>
+          <Feed />
+        </Grid>
+        <Grid item sm={2}>
+          <Leftbar />
+        </Grid>
+      </Grid>
     </div>
-    
+
 
   );
 }
