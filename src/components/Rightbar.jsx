@@ -12,6 +12,8 @@ const useStyle = makeStyles((theme) => ({
       color: "#555",
 
     },
+    position:"sticky",
+    top:5
 
   },
 
