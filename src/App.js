@@ -10,7 +10,7 @@ const useStyle = makeStyles((theme) => ({
     backgroundColor: "black"
   },
 
-  right: {
+  left: {
     [theme.breakpoints.down('xs')]: {
       display: "none"
 
@@ -26,13 +26,13 @@ function App() {
       <Navbar />
 
       <Grid container>
-        <Grid item sm={3} className={classes.right}>
+        <Grid item sm={2} xs={2}>
           <Rightbar />
         </Grid>
         <Grid item sm={7} xs={10}>
           <Feed />
         </Grid>
-        <Grid item sm={2} xs={2}>
+        <Grid item sm={3} className={classes.left}>
           <Leftbar />
         </Grid>
       </Grid>
