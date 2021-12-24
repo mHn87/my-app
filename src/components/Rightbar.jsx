@@ -11,10 +11,9 @@ function Rightbar() {
   const classes = useStyle();
   return (
     <Container className={classes.container}>
-    <div>
+      <div>
         این ساید بار راست است
-    </div>
-    
+      </div>
     </Container>
   );
 }
